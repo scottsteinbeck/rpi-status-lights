@@ -1,0 +1,1023 @@
+#
+# A fatal error has been detected by the Java Runtime Environment:
+#
+#  SIGSEGV (0xb) at pc=0x60b21568, pid=1992, tid=0x75072470
+#
+# JRE version: OpenJDK Runtime Environment (8.0_252-b09) (build 1.8.0_252-8u252-b09-1~deb9u1-b09)
+# Java VM: OpenJDK Client VM (25.252-b09 mixed mode linux-aarch32 )
+# Problematic frame:
+# C  [libws281xj4292431558238710923.so+0x2568]  ws2811_render+0xc
+#
+# Failed to write core dump. Core dumps have been disabled. To enable core dumping, try "ulimit -c unlimited" before starting Java again
+#
+# If you would like to submit a bug report, please visit:
+#   http://bugreport.java.com/bugreport/crash.jsp
+# The crash happened outside the Java Virtual Machine in native code.
+# See problematic frame for where to report the bug.
+#
+
+---------------  T H R E A D  ---------------
+
+Current thread (0x74f08000):  JavaThread "main" [_thread_in_native, id=1996, stack(0x75023000,0x75073000)]
+
+siginfo: si_signo: 11 (SIGSEGV), si_code: 1 (SEGV_MAPERR), si_addr: 0x00000000
+
+Registers:
+R0=0x60b32c78
+R1=0x7506fce4
+R2=0x00000000
+R3=0x00000000
+R4=0x7506fcb8
+R5=0x00000000
+R6=0x72eac120
+R7=0x60c1f870
+R8=0x74f08000
+R9=0x00000004
+R10=0x60c1f718
+R11=0x7506fcb4
+R12=0x60b32bb4
+R13=0x7506fc84
+R14=0x60b20530
+R15=0x60b21568
+
+Top of Stack: (sp=0x7506fc84)
+0x7506fc84:   7506fcb8 00000000 72eac120 60c1f870
+0x7506fc94:   74f08000 00000004 60c1f718 7506fcb4
+0x7506fca4:   60b20530 7506fce4 74f08130 7506fcdc
+0x7506fcb4:   72eaf96c 7506fcb8 00000000 7506fce4
+0x7506fcc4:   60c1f870 00000000 60c1f718 00000000
+0x7506fcd4:   7506fce8 7506fd0c 72ea4400 00000000
+0x7506fce4:   6aff2d80 7506fce8 60c1e448 7506fd14
+0x7506fcf4:   60c1f058 00000000 60c1e490 7506fce8 
+
+Instructions: (pc=0x60b21568)
+0x60b21548:   08 00 95 e5 13 fc ff eb 05 00 a0 e1 38 40 bd e8
+0x60b21558:   b1 fa ff ea 08 30 90 e5 f0 4f 2d e9 c3 6b 9f ed
+0x60b21568:   00 a0 93 e5 44 d0 4d e2 04 10 93 e5 04 33 9f e5
+0x60b21578:   00 20 a0 e3 03 00 5a e3 03 30 8f e0 18 20 8d e5 
+
+Register to memory mapping:
+
+R0=0x60b32c78: led_string+0 in /tmp/libws281xj4292431558238710923.so at 0x60b1f000
+R1=0x7506fce4 is pointing into the stack for thread: 0x74f08000
+R2=0x00000000 is an unknown value
+R3=0x00000000 is an unknown value
+R4=0x7506fcb8 is pointing into the stack for thread: 0x74f08000
+R5=0x00000000 is an unknown value
+R6=0x72eac120 is at code_begin+32 in an Interpreter codelet
+result handlers for native calls  [0x72eac100, 0x72eac140]  64 bytes
+R7=0x60c1f870 is pointing into metadata
+R8=0x74f08000 is a thread
+R9=0x00000004 is an unknown value
+R10={method} {0x60c1f718} 'render' '()I' in 'com/diozero/ws281xj/rpiws281x/WS281xNative'
+R11=0x7506fcb4 is pointing into the stack for thread: 0x74f08000
+R12=0x60b32bb4: <offset 0x13bb4> in /tmp/libws281xj4292431558238710923.so at 0x60b1f000
+R13=0x7506fc84 is pointing into the stack for thread: 0x74f08000
+R14=0x60b20530: Java_com_diozero_ws281xj_rpiws281x_WS281xNative_render+0x1c in /tmp/libws281xj4292431558238710923.so at 0x60b1f000
+R15=0x60b21568: ws2811_render+0xc in /tmp/libws281xj4292431558238710923.so at 0x60b1f000
+
+
+Stack: [0x75023000,0x75073000],  sp=0x7506fc84,  free space=307k
+Native frames: (J=compiled Java code, j=interpreted, Vv=VM code, C=native code)
+C  [libws281xj4292431558238710923.so+0x2568]  ws2811_render+0xc
+j  com.diozero.ws281xj.rpiws281x.WS281xNative.render()I+0
+j  com.diozero.ws281xj.rpiws281x.WS281x.render()V+0
+j  sun.reflect.GeneratedMethodAccessor33.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+36
+J 2780 C1 sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x730ba544 [0x730ba500+0x44]
+J 2846 C1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x731df348 [0x731df260+0xe8]
+J 2852 C1 lucee.runtime.reflection.Reflector.callMethod(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (72 bytes) @ 0x731dcf68 [0x731dcd60+0x208]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4d79c [0x72f4cf20+0x87c]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+J 3368% C1 pi.desktop.lightstatus.twinkletask_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object; (911 bytes) @ 0x73263ef8 [0x73262920+0x15d8]
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb34c [0x730caba0+0x7ac]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  models.taskservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1261
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+J 2733 C1 lucee.runtime.type.UDFImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Z)Ljava/lang/Object; (32 bytes) @ 0x73155954 [0x73155860+0xf4]
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb324 [0x730caba0+0x784]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+J 2865 C1 lucee.runtime.ComponentImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x731d990c [0x731d98c0+0x4c]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4ed08 [0x72f4cf20+0x1de8]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+j  system.modules_app.task_commands225.commands.task.run_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+669
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb34c [0x730caba0+0x7ac]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.services.commandservice_cfc$cf.udfCall1(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+6473
+j  system.services.commandservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+18
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+j  lucee.runtime.type.scope.UndefinedImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+25
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.services.commandservice_cfc$cf.udfCall1(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1635
+j  system.services.commandservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+18
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+J 2733 C1 lucee.runtime.type.UDFImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Z)Ljava/lang/Object; (32 bytes) @ 0x73155954 [0x73155860+0xf4]
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb324 [0x730caba0+0x784]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+J 2865 C1 lucee.runtime.ComponentImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x731d990c [0x731d98c0+0x4c]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4ed08 [0x72f4cf20+0x1de8]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+j  system.shell_cfc$cf.udfCall4(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+654
+J 3293 C1 system.shell_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object; (102 bytes) @ 0x7310d1b4 [0x7310d140+0x74]
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+j  lucee.runtime.type.scope.UndefinedImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+25
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.shell_cfc$cf.udfCall3(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1710
+j  system.shell_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+68
+J 1522 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x7320fbf0 [0x7320f6c0+0x530]
+J 1684 C1 lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (32 bytes) @ 0x7327e4d0 [0x7327e3e0+0xf0]
+J 1572 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x7322928c [0x73228ae0+0x7ac]
+J 1573 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x7322b4e4 [0x7322b3c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+J 1690 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (116 bytes) @ 0x73280d9c [0x73280960+0x43c]
+J 1719 C1 lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x7328ce60 [0x7328ce00+0x60]
+j  _commandbox46.cfml.system.bootstrap_cfm$cf.call(Llucee/runtime/PageContext;)Ljava/lang/Object;+2707
+j  lucee.runtime.PageContextImpl._doInclude([Llucee/runtime/PageSource;Z)V+428
+j  lucee.runtime.PageContextImpl._doInclude([Llucee/runtime/PageSource;ZLjava/lang/Object;)V+7
+j  lucee.runtime.PageContextImpl.doInclude(Ljava/lang/String;Z)V+13
+j  1hakaskpj4qmq.call(Llucee/runtime/PageContext;)Ljava/lang/Object;+264
+j  lucee.runtime.compiler.Renderer.tag(Llucee/runtime/PageContext;Ljava/lang/String;IZZ)Llucee/runtime/compiler/Renderer$Result;+37
+j  lucee.runtime.compiler.Renderer.script(Llucee/runtime/PageContext;Ljava/lang/String;IZZ)Llucee/runtime/compiler/Renderer$Result;+97
+j  lucee.runtime.jsr223.ScriptEngineImpl.eval(Ljava/lang/String;Ljavax/script/ScriptContext;)Ljava/lang/Object;+60
+j  lucee.runtime.jsr223.ScriptEngineImpl.eval(Ljava/lang/String;)Ljava/lang/Object;+6
+j  cliloader.LoaderCLIMain.execute(Ljava/util/ArrayList;Ljava/io/InputStream;Ljava/io/PrintStream;)V+1304
+j  cliloader.LoaderCLIMain.execute(Ljava/util/ArrayList;)V+33
+j  cliloader.LoaderCLIMain.main([Ljava/lang/String;)V+18
+v  ~StubRoutines::call_stub
+V  [libjvm.so+0x3019a8]
+V  [libjvm.so+0x30084c]
+V  [libjvm.so+0x324954]
+V  [libjvm.so+0x326d78]
+C  [libjli.so+0x2f50]
+C  [libpthread.so.0+0x5fc4]  start_thread+0xb4
+C  [libc.so.6+0xd1038]
+
+Java frames: (J=compiled Java code, j=interpreted, Vv=VM code)
+j  com.diozero.ws281xj.rpiws281x.WS281xNative.render()I+0
+j  com.diozero.ws281xj.rpiws281x.WS281x.render()V+0
+j  sun.reflect.GeneratedMethodAccessor33.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object;+36
+J 2780 C1 sun.reflect.DelegatingMethodAccessorImpl.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x730ba544 [0x730ba500+0x44]
+J 2846 C1 java.lang.reflect.Method.invoke(Ljava/lang/Object;[Ljava/lang/Object;)Ljava/lang/Object; (62 bytes) @ 0x731df348 [0x731df260+0xe8]
+J 2852 C1 lucee.runtime.reflection.Reflector.callMethod(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (72 bytes) @ 0x731dcf68 [0x731dcd60+0x208]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4d79c [0x72f4cf20+0x87c]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+J 3368% C1 pi.desktop.lightstatus.twinkletask_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object; (911 bytes) @ 0x73263ef8 [0x73262920+0x15d8]
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb34c [0x730caba0+0x7ac]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  models.taskservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1261
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+J 2733 C1 lucee.runtime.type.UDFImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Z)Ljava/lang/Object; (32 bytes) @ 0x73155954 [0x73155860+0xf4]
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb324 [0x730caba0+0x784]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+J 2865 C1 lucee.runtime.ComponentImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x731d990c [0x731d98c0+0x4c]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4ed08 [0x72f4cf20+0x1de8]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+j  system.modules_app.task_commands225.commands.task.run_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+669
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb34c [0x730caba0+0x7ac]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.services.commandservice_cfc$cf.udfCall1(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+6473
+j  system.services.commandservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+18
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+j  lucee.runtime.type.scope.UndefinedImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+25
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.services.commandservice_cfc$cf.udfCall1(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1635
+j  system.services.commandservice_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+18
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+J 2733 C1 lucee.runtime.type.UDFImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Z)Ljava/lang/Object; (32 bytes) @ 0x73155954 [0x73155860+0xf4]
+J 2732 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x730cb324 [0x730caba0+0x784]
+J 2734 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x731554e4 [0x731553c0+0x124]
+J 2865 C1 lucee.runtime.ComponentImpl.call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (10 bytes) @ 0x731d990c [0x731d98c0+0x4c]
+J 2380 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithoutNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (487 bytes) @ 0x72f4ed08 [0x72f4cf20+0x1de8]
+J 2394 C1 lucee.runtime.PageContextImpl.getFunction(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x72f4ba60 [0x72f4ba00+0x60]
+j  system.shell_cfc$cf.udfCall4(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+654
+J 3293 C1 system.shell_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object; (102 bytes) @ 0x7310d1b4 [0x7310d140+0x74]
+J 2715 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x73158ff0 [0x73158ac0+0x530]
+j  lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object;+28
+j  lucee.runtime.type.scope.UndefinedImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+25
+j  lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+18
+j  lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object;+8
+j  system.shell_cfc$cf.udfCall3(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+1710
+j  system.shell_cfc$cf.udfCall(Llucee/runtime/PageContext;Llucee/runtime/type/UDF;I)Ljava/lang/Object;+68
+J 1522 C1 lucee.runtime.type.UDFImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (835 bytes) @ 0x7320fbf0 [0x7320f6c0+0x530]
+J 1684 C1 lucee.runtime.type.UDFImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;Z)Ljava/lang/Object; (32 bytes) @ 0x7327e4d0 [0x7327e3e0+0xf0]
+J 1572 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/UDF;Llucee/runtime/type/Struct;[Ljava/lang/Object;)Ljava/lang/Object; (515 bytes) @ 0x7322928c [0x73228ae0+0x7ac]
+J 1573 C1 lucee.runtime.ComponentImpl._call(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;[Ljava/lang/Object;Z)Ljava/lang/Object; (54 bytes) @ 0x7322b4e4 [0x7322b3c0+0x124]
+j  lucee.runtime.ComponentImpl.callWithNamedValues(Llucee/runtime/PageContext;Llucee/runtime/type/Collection$Key;Llucee/runtime/type/Struct;)Ljava/lang/Object;+6
+J 1690 C1 lucee.runtime.util.VariableUtilImpl.callFunctionWithNamedValues(Llucee/runtime/PageContext;Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (116 bytes) @ 0x73280d9c [0x73280960+0x43c]
+J 1719 C1 lucee.runtime.PageContextImpl.getFunctionWithNamedValues(Ljava/lang/Object;Llucee/runtime/type/Collection$Key;[Ljava/lang/Object;)Ljava/lang/Object; (12 bytes) @ 0x7328ce60 [0x7328ce00+0x60]
+j  _commandbox46.cfml.system.bootstrap_cfm$cf.call(Llucee/runtime/PageContext;)Ljava/lang/Object;+2707
+j  lucee.runtime.PageContextImpl._doInclude([Llucee/runtime/PageSource;Z)V+428
+j  lucee.runtime.PageContextImpl._doInclude([Llucee/runtime/PageSource;ZLjava/lang/Object;)V+7
+j  lucee.runtime.PageContextImpl.doInclude(Ljava/lang/String;Z)V+13
+j  1hakaskpj4qmq.call(Llucee/runtime/PageContext;)Ljava/lang/Object;+264
+j  lucee.runtime.compiler.Renderer.tag(Llucee/runtime/PageContext;Ljava/lang/String;IZZ)Llucee/runtime/compiler/Renderer$Result;+37
+j  lucee.runtime.compiler.Renderer.script(Llucee/runtime/PageContext;Ljava/lang/String;IZZ)Llucee/runtime/compiler/Renderer$Result;+97
+j  lucee.runtime.jsr223.ScriptEngineImpl.eval(Ljava/lang/String;Ljavax/script/ScriptContext;)Ljava/lang/Object;+60
+j  lucee.runtime.jsr223.ScriptEngineImpl.eval(Ljava/lang/String;)Ljava/lang/Object;+6
+j  cliloader.LoaderCLIMain.execute(Ljava/util/ArrayList;Ljava/io/InputStream;Ljava/io/PrintStream;)V+1304
+j  cliloader.LoaderCLIMain.execute(Ljava/util/ArrayList;)V+33
+j  cliloader.LoaderCLIMain.main([Ljava/lang/String;)V+18
+v  ~StubRoutines::call_stub
+
+---------------  P R O C E S S  ---------------
+
+Java Threads: ( => current thread )
+  0x63200800 JavaThread "process reaper" daemon [_thread_in_native, id=7646, stack(0x62b60000,0x62bb0000)]
+  0x63c53000 JavaThread "JLine Shutdown Hook" [_thread_in_native, id=7643, stack(0x62bb0000,0x62c00000)]
+  0x63601c00 JavaThread "SIGHUP handler" daemon [_thread_blocked, id=7639, stack(0x62210000,0x62260000)]
+  0x63601400 JavaThread "Attach Listener" daemon [_thread_blocked, id=2043, stack(0x61a10000,0x61a60000)]
+  0x61ff1c00 JavaThread "Thread-1" daemon [_thread_blocked, id=2013, stack(0x61ab0000,0x61b00000)]
+  0x625a0800 JavaThread "FelixStartLevel" daemon [_thread_blocked, id=2010, stack(0x62360000,0x623b0000)]
+  0x6259f400 JavaThread "FelixFrameworkWiring" daemon [_thread_blocked, id=2009, stack(0x623b0000,0x62400000)]
+  0x62d82800 JavaThread "FelixDispatchQueue" [_thread_blocked, id=2004, stack(0x62e42000,0x62e92000)]
+  0x74f83800 JavaThread "Service Thread" daemon [_thread_blocked, id=2002, stack(0x63b10000,0x63b60000)]
+  0x74f81800 JavaThread "C1 CompilerThread0" daemon [_thread_blocked, id=2001, stack(0x63580000,0x63600000)]
+  0x74f80000 JavaThread "Signal Dispatcher" daemon [_thread_blocked, id=2000, stack(0x63b60000,0x63bb0000)]
+  0x74f66400 JavaThread "Finalizer" daemon [_thread_blocked, id=1999, stack(0x63bb0000,0x63c00000)]
+  0x74f63400 JavaThread "Reference Handler" daemon [_thread_blocked, id=1998, stack(0x63d11000,0x63d61000)]
+=>0x74f08000 JavaThread "main" [_thread_in_native, id=1996, stack(0x75023000,0x75073000)]
+
+Other Threads:
+  0x74f5dc00 VMThread [stack: 0x63d62000,0x63de2000] [id=1997]
+  0x74f85800 WatcherThread [stack: 0x63380000,0x63400000] [id=2003]
+
+VM state:not at safepoint (normal execution)
+
+VM Mutex/Monitor currently owned by a thread: None
+
+Heap:
+ def new generation   total 24192K, used 9252K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,  43% used [0x64400000, 0x64d089b8, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65900918, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+
+Card table byte_map: [0x72d2e000,0x72da3000] byte_map_base: 0x72a0c000
+
+Polling page: 0x76f00000
+
+CodeCache: size=32768Kb used=4314Kb max_used=5687Kb free=28453Kb
+ bounds [0x72e23000, 0x733b3000, 0x74e23000]
+ total_blobs=1487 nmethods=1277 adapters=141
+ compilation: enabled
+
+Compilation events (10 events):
+Event: 45413.032 Thread 0x74f81800 3364 %           lucee.runtime.engine.Controler::run @ 170 (487 bytes)
+Event: 45413.042 Thread 0x74f81800 nmethod 3364% 0x7326e548 code [0x7326ea00, 0x73270100]
+Event: 64815.529 Thread 0x74f81800 3365             java.util.Calendar::clear (54 bytes)
+Event: 64815.530 Thread 0x74f81800 nmethod 3365 0x73279388 code [0x73279480, 0x732795dc]
+Event: 77375.240 Thread 0x74f81800 3366  s          java.lang.Throwable::getOurStackTrace (80 bytes)
+Event: 77375.243 Thread 0x74f81800 nmethod 3366 0x7326dcc8 code [0x7326de00, 0x7326e384]
+Event: 77378.819 Thread 0x74f81800 3367   !         system.util.printbuffer_cfc$cf::udfCall (825 bytes)
+Event: 77378.837 Thread 0x74f81800 nmethod 3367 0x73267688 code [0x73267da0, 0x73269e44]
+Event: 77435.189 Thread 0x74f81800 3368 %           pi.desktop.lightstatus.twinkletask_cfc$cf::udfCall @ 386 (911 bytes)
+Event: 77435.206 Thread 0x74f81800 nmethod 3368% 0x73262048 code [0x73262920, 0x73264ca0]
+
+GC Heap History (10 events):
+Event: 88213.897 GC heap before
+{Heap before GC invocations=27676 (full 4):
+ def new generation   total 24192K, used 21505K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K, 100% used [0x64400000, 0x65900000, 0x65900000)
+  from space 2688K,   0% used [0x65ba0000, 0x65ba0690, 0x65e40000)
+  to   space 2688K,   0% used [0x65900000, 0x65900000, 0x65ba0000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+Event: 88213.903 GC heap after
+Heap after GC invocations=27677 (full 4):
+ def new generation   total 24192K, used 2K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,   0% used [0x64400000, 0x64400000, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65900a30, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+}
+Event: 88216.986 GC heap before
+{Heap before GC invocations=27677 (full 4):
+ def new generation   total 24192K, used 21506K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K, 100% used [0x64400000, 0x65900000, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65900a30, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+Event: 88216.993 GC heap after
+Heap after GC invocations=27678 (full 4):
+ def new generation   total 24192K, used 2K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,   0% used [0x64400000, 0x64400000, 0x65900000)
+  from space 2688K,   0% used [0x65ba0000, 0x65ba09b0, 0x65e40000)
+  to   space 2688K,   0% used [0x65900000, 0x65900000, 0x65ba0000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+}
+Event: 88220.035 GC heap before
+{Heap before GC invocations=27678 (full 4):
+ def new generation   total 24192K, used 21506K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K, 100% used [0x64400000, 0x65900000, 0x65900000)
+  from space 2688K,   0% used [0x65ba0000, 0x65ba09b0, 0x65e40000)
+  to   space 2688K,   0% used [0x65900000, 0x65900000, 0x65ba0000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+Event: 88220.041 GC heap after
+Heap after GC invocations=27679 (full 4):
+ def new generation   total 24192K, used 4K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,   0% used [0x64400000, 0x64400000, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65901158, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+}
+Event: 88223.085 GC heap before
+{Heap before GC invocations=27679 (full 4):
+ def new generation   total 24192K, used 21508K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K, 100% used [0x64400000, 0x65900000, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65901158, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+Event: 88223.094 GC heap after
+Heap after GC invocations=27680 (full 4):
+ def new generation   total 24192K, used 1K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,   0% used [0x64400000, 0x64400000, 0x65900000)
+  from space 2688K,   0% used [0x65ba0000, 0x65ba07b8, 0x65e40000)
+  to   space 2688K,   0% used [0x65900000, 0x65900000, 0x65ba0000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+}
+Event: 88226.102 GC heap before
+{Heap before GC invocations=27680 (full 4):
+ def new generation   total 24192K, used 21505K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K, 100% used [0x64400000, 0x65900000, 0x65900000)
+  from space 2688K,   0% used [0x65ba0000, 0x65ba07b8, 0x65e40000)
+  to   space 2688K,   0% used [0x65900000, 0x65900000, 0x65ba0000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+Event: 88226.108 GC heap after
+Heap after GC invocations=27681 (full 4):
+ def new generation   total 24192K, used 2K [0x64400000, 0x65e40000, 0x69150000)
+  eden space 21504K,   0% used [0x64400000, 0x64400000, 0x65900000)
+  from space 2688K,   0% used [0x65900000, 0x65900918, 0x65ba0000)
+  to   space 2688K,   0% used [0x65ba0000, 0x65ba0000, 0x65e40000)
+ tenured generation   total 53640K, used 33950K [0x69150000, 0x6c5b2000, 0x72c00000)
+   the space 53640K,  63% used [0x69150000, 0x6b277ab0, 0x6b277c00, 0x6c5b2000)
+ Metaspace       used 25076K, capacity 25739K, committed 25880K, reserved 25904K
+}
+
+Deoptimization events (0 events):
+No events
+
+Classes redefined (10 events):
+Event: 35443.681 Thread 0x74f5dc00 redefined class name=system.util.printbuffer_cfc$cf, count=14
+Event: 35443.827 Thread 0x74f5dc00 redefined class name=system.util.parser_cfc$cf, count=14
+Event: 77376.399 Thread 0x74f5dc00 redefined class name=system.modules_app.task_commands225.commands.task.run_cfc$cf, count=14
+Event: 77376.562 Thread 0x74f5dc00 redefined class name=system.ioc.config.mapping_cfc$cf, count=15
+Event: 77376.649 Thread 0x74f5dc00 redefined class name=pi.desktop.lightstatus.twinkletask_cfc$cf, count=27
+Event: 77376.743 Thread 0x74f5dc00 redefined class name=pi.desktop.lightstatus.twinkletask_cfc$cf, count=28
+Event: 77376.828 Thread 0x74f5dc00 redefined class name=system.basetask_cfc$cf, count=13
+Event: 77376.911 Thread 0x74f5dc00 redefined class name=system.basecommand_cfc$cf, count=15
+Event: 77376.991 Thread 0x74f5dc00 redefined class name=system.util.printbuffer_cfc$cf, count=15
+Event: 77377.100 Thread 0x74f5dc00 redefined class name=system.util.parser_cfc$cf, count=15
+
+Internal exceptions (10 events):
+Event: 88227.372 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c77260) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.374 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c7ec50) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.376 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c86640) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.379 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c8e030) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.381 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c95a20) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.383 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64c9d430) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.385 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64ca4e20) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.387 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64cac810) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.389 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64cb4200) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+Event: 88227.391 Thread 0x74f08000 Exception <a 'java/io/IOException'> (0x64cbbbf0) thrown at [/build/openjdk-8-IgZr8b/openjdk-8-8u252-b09/src/hotspot/src/share/vm/prims/jni.cpp, line 710]
+
+Events (10 events):
+Event: 88227.326 loading class java/util/IdentityHashMap$IdentityHashMapIterator
+Event: 88227.335 loading class java/util/IdentityHashMap$IdentityHashMapIterator done
+Event: 88227.339 loading class java/util/IdentityHashMap$KeyIterator done
+Event: 88227.342 Thread 0x63c52400 Thread added: 0x63c52400
+Event: 88227.342 Thread 0x63c53000 Thread added: 0x63c53000
+Event: 88227.343 Thread 0x63c53800 Thread added: 0x63c53800
+Event: 88227.343 Thread 0x63c52400 Thread exited: 0x63c52400
+Event: 88227.350 Executing VM operation: RevokeBias
+Event: 88227.351 Executing VM operation: RevokeBias done
+Event: 88227.354 Thread 0x63c53800 Thread exited: 0x63c53800
+
+
+Dynamic libraries:
+00010000-00011000 r-xp 00000000 b3:07 786453     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+00020000-00021000 r--p 00000000 b3:07 786453     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+00021000-00022000 rw-p 00001000 b3:07 786453     /usr/lib/jvm/java-8-openjdk-armhf/jre/bin/java
+01345000-01366000 rw-p 00000000 00:00 0          [heap]
+60200000-60300000 rw-p 00000000 00:00 0 
+60300000-60400000 rw-p 00000000 00:00 0 
+60400000-6049a000 rw-p 00000000 00:00 0 
+6049a000-60500000 ---p 00000000 00:00 0 
+60500000-60600000 rw-p 00000000 00:00 0 
+60600000-60700000 rw-p 00000000 00:00 0 
+60700000-60800000 rw-p 00000000 00:00 0 
+60800000-60900000 rw-p 00000000 00:00 0 
+60900000-60a00000 rw-p 00000000 00:00 0 
+60a00000-60aaf000 rw-p 00000000 00:00 0 
+60aaf000-60b00000 ---p 00000000 00:00 0 
+60b1f000-60b23000 r-xp 00000000 b3:07 655571     /tmp/libws281xj4292431558238710923.so
+60b23000-60b32000 ---p 00004000 b3:07 655571     /tmp/libws281xj4292431558238710923.so
+60b32000-60b33000 rw-p 00003000 b3:07 655571     /tmp/libws281xj4292431558238710923.so
+60b33000-60b36000 ---p 00000000 00:00 0 
+60b36000-60b83000 rw-p 00000000 00:00 0 
+60b83000-60b8c000 r-xp 00000000 b3:07 801392     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libinstrument.so
+60b8c000-60b9b000 ---p 00009000 b3:07 801392     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libinstrument.so
+60b9b000-60b9c000 r--p 00008000 b3:07 801392     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libinstrument.so
+60b9c000-60b9d000 rw-p 00009000 b3:07 801392     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libinstrument.so
+60b9d000-60ba0000 ---p 00000000 00:00 0 
+60ba0000-60bed000 rw-p 00000000 00:00 0 
+60bf4000-60bf5000 rw-s 3f101000 00:06 1027       /dev/mem
+60bf5000-60bf6000 rw-s 3f200000 00:06 1027       /dev/mem
+60bf6000-60bf7000 rw-s 3f20c000 00:06 1027       /dev/mem
+60bf7000-60bf8000 rw-s 3f007000 00:06 1027       /dev/mem
+60bf8000-60bf9000 rw-s 3d64d000 00:06 1027       /dev/mem
+60bf9000-60bfa000 rw-s 3f101000 00:06 1027       /dev/mem
+60bfa000-60bfb000 rw-s 3f200000 00:06 1027       /dev/mem
+60bfb000-60bfc000 rw-s 3f20c000 00:06 1027       /dev/mem
+60bfc000-60bfd000 rw-s 3f007000 00:06 1027       /dev/mem
+60bfd000-60bfe000 rw-s 3d64f000 00:06 1027       /dev/mem
+60bfe000-60bff000 rw-s 3f101000 00:06 1027       /dev/mem
+60bff000-60c00000 rw-s 3f200000 00:06 1027       /dev/mem
+60c00000-60d00000 rw-p 00000000 00:00 0 
+60d00000-60efc000 rw-p 00000000 00:00 0 
+60efc000-60f00000 ---p 00000000 00:00 0 
+60f00000-61000000 rw-p 00000000 00:00 0 
+61000000-61100000 rw-p 00000000 00:00 0 
+61100000-611fa000 rw-p 00000000 00:00 0 
+611fa000-61200000 ---p 00000000 00:00 0 
+61200000-61300000 rw-p 00000000 00:00 0 
+61300000-61400000 rw-p 00000000 00:00 0 
+61400000-614fc000 rw-p 00000000 00:00 0 
+614fc000-61500000 ---p 00000000 00:00 0 
+61500000-61600000 rw-p 00000000 00:00 0 
+61600000-61700000 rw-p 00000000 00:00 0 
+61700000-61800000 rw-p 00000000 00:00 0 
+61800000-61900000 rw-p 00000000 00:00 0 
+61900000-61a00000 rw-p 00000000 00:00 0 
+61a00000-61a01000 rw-s 3f20c000 00:06 1027       /dev/mem
+61a01000-61a02000 rw-s 3f007000 00:06 1027       /dev/mem
+61a02000-61a03000 rw-s 3d651000 00:06 1027       /dev/mem
+61a03000-61a04000 rw-s 3f101000 00:06 1027       /dev/mem
+61a04000-61a05000 rw-s 3f200000 00:06 1027       /dev/mem
+61a05000-61a06000 rw-s 3f20c000 00:06 1027       /dev/mem
+61a06000-61a07000 rw-s 3f007000 00:06 1027       /dev/mem
+61a07000-61a08000 rw-s 3d653000 00:06 1027       /dev/mem
+61a08000-61a09000 rw-s 3f101000 00:06 1027       /dev/mem
+61a09000-61a0a000 rw-s 3f200000 00:06 1027       /dev/mem
+61a0a000-61a0b000 rw-s 3f20c000 00:06 1027       /dev/mem
+61a0b000-61a0c000 rw-s 3f007000 00:06 1027       /dev/mem
+61a0c000-61a0d000 rw-s 3d655000 00:06 1027       /dev/mem
+61a0d000-61a0e000 rw-s 3f101000 00:06 1027       /dev/mem
+61a0e000-61a0f000 rw-s 3f200000 00:06 1027       /dev/mem
+61a0f000-61a10000 rw-s 3f20c000 00:06 1027       /dev/mem
+61a10000-61a13000 ---p 00000000 00:00 0 
+61a13000-61a60000 rw-p 00000000 00:00 0 
+61a60000-61a63000 ---p 00000000 00:00 0 
+61a63000-61ab0000 rw-p 00000000 00:00 0 
+61ab0000-61ab3000 ---p 00000000 00:00 0 
+61ab3000-61c00000 rw-p 00000000 00:00 0 
+61c00000-61cfe000 rw-p 00000000 00:00 0 
+61cfe000-61d00000 ---p 00000000 00:00 0 
+61d00000-61e00000 rw-p 00000000 00:00 0 
+61e00000-61f00000 rw-p 00000000 00:00 0 
+61f00000-62000000 rw-p 00000000 00:00 0 
+62000000-62100000 rw-p 00000000 00:00 0 
+62100000-62200000 rw-p 00000000 00:00 0 
+62200000-62201000 rw-s 3f007000 00:06 1027       /dev/mem
+62201000-62202000 rw-s 3d657000 00:06 1027       /dev/mem
+62202000-62203000 rw-s 3f101000 00:06 1027       /dev/mem
+62203000-62204000 rw-s 3f200000 00:06 1027       /dev/mem
+62204000-62205000 rw-s 3f20c000 00:06 1027       /dev/mem
+62205000-62206000 rw-s 3f007000 00:06 1027       /dev/mem
+62206000-62207000 rw-s 3d659000 00:06 1027       /dev/mem
+62207000-62208000 rw-s 3f101000 00:06 1027       /dev/mem
+62208000-62209000 rw-s 3f200000 00:06 1027       /dev/mem
+62209000-6220a000 rw-s 3f20c000 00:06 1027       /dev/mem
+6220a000-6220b000 rw-s 3f007000 00:06 1027       /dev/mem
+6220b000-6220c000 rw-s 3d65b000 00:06 1027       /dev/mem
+6220c000-6220d000 rw-s 3f101000 00:06 1027       /dev/mem
+6220d000-6220e000 rw-s 3f200000 00:06 1027       /dev/mem
+6220e000-6220f000 rw-s 3f20c000 00:06 1027       /dev/mem
+6220f000-62210000 rw-s 3f007000 00:06 1027       /dev/mem
+62210000-62213000 ---p 00000000 00:00 0 
+62213000-62360000 rw-p 00000000 00:00 0 
+62360000-62363000 ---p 00000000 00:00 0 
+62363000-623b0000 rw-p 00000000 00:00 0 
+623b0000-623b3000 ---p 00000000 00:00 0 
+623b3000-62400000 rw-p 00000000 00:00 0 
+62400000-624ff000 rw-p 00000000 00:00 0 
+624ff000-62500000 ---p 00000000 00:00 0 
+62500000-625fd000 rw-p 00000000 00:00 0 
+625fd000-62600000 ---p 00000000 00:00 0 
+62600000-626fe000 rw-p 00000000 00:00 0 
+626fe000-62700000 ---p 00000000 00:00 0 
+62700000-62701000 rw-s 3d65d000 00:06 1027       /dev/mem
+62701000-62702000 rw-s 3f101000 00:06 1027       /dev/mem
+62702000-62703000 rw-s 3f200000 00:06 1027       /dev/mem
+62703000-62704000 rw-s 3f20c000 00:06 1027       /dev/mem
+62704000-62705000 rw-s 3f007000 00:06 1027       /dev/mem
+62705000-62706000 rw-s 3d65f000 00:06 1027       /dev/mem
+62706000-6270c000 r--s 0005b000 b3:07 1700883    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle18/version0.0/bundle.jar
+6270c000-62714000 r--s 00030000 b3:07 1579740    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle12/version0.0/bundle.jar
+62714000-62722000 r--s 00081000 b3:07 1711928    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle63/version0.0/bundle.jar
+62722000-62724000 r--s 00015000 b3:07 1701577    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle31/version0.0/bundle.jar
+62724000-62727000 r--s 00017000 b3:07 1701475    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle23/version0.0/bundle.jar
+62727000-62729000 r--s 0000d000 b3:07 1579700    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle4/version0.0/bundle.jar
+62729000-62800000 r--s 007c2000 b3:07 1711912    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle60/version0.0/bundle.jar
+62800000-628ff000 rw-p 00000000 00:00 0 
+628ff000-62900000 ---p 00000000 00:00 0 
+62900000-62907000 r--s 00029000 b3:07 1579745    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle13/version0.0/bundle.jar
+62907000-6290b000 r--s 00029000 b3:07 1701567    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle29/version0.0/bundle.jar
+6290b000-6290d000 r--s 00008000 b3:07 1701582    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle32/version0.0/bundle.jar
+6290d000-6290e000 r--s 00004000 b3:07 1711901    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle58/version0.0/bundle.jar
+6290e000-62911000 r--s 00021000 b3:07 1711958    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle69/version0.0/bundle.jar
+62911000-62915000 r--s 0001d000 b3:07 1712025    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle81/version0.0/bundle.jar
+62915000-6291e000 r--s 0006f000 b3:07 1701470    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle22/version0.0/bundle.jar
+6291e000-62920000 r--s 00007000 b3:07 1712050    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle86/version0.0/bundle.jar
+62920000-62927000 r--s 00047000 b3:07 1711876    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle53/version0.0/bundle.jar
+62927000-6292a000 r--s 0001c000 b3:07 1711993    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle76/version0.0/bundle.jar
+6292a000-62932000 r--s 00086000 b3:07 1701480    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle24/version0.0/bundle.jar
+62932000-62934000 r--s 0000c000 b3:07 1711968    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle71/version0.0/bundle.jar
+62934000-62942000 r--s 000b1000 b3:07 1711896    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle57/version0.0/bundle.jar
+62942000-62945000 r--s 00026000 b3:07 89         /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle91/version0.0/bundle.jar
+62945000-6294b000 r--s 00068000 b3:07 1711933    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle64/version0.0/bundle.jar
+6294b000-62958000 r--s 00088000 b3:07 1701489    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle25/version0.0/bundle.jar
+62958000-6295a000 r--s 00004000 b3:07 1712035    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle83/version0.0/bundle.jar
+6295a000-62962000 r--s 0008c000 b3:07 1711943    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle66/version0.0/bundle.jar
+62962000-62964000 r--s 000e7000 b3:07 1712182    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle88/version0.0/bundle.jar
+62964000-6296c000 r--s 00049000 b3:07 1701612    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle38/version0.0/bundle.jar
+6296c000-6296e000 r--s 00005000 b3:07 1701602    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle36/version0.0/bundle.jar
+6296e000-6296f000 r--s 00004000 b3:07 1701572    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle30/version0.0/bundle.jar
+6296f000-62970000 r--s 00009000 b3:07 1579750    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle14/version0.0/bundle.jar
+62970000-6298b000 r--s 001c0000 b3:07 1711886    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle55/version0.0/bundle.jar
+6298b000-62993000 r--s 00097000 b3:07 1701494    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle26/version0.0/bundle.jar
+62993000-62995000 r--s 00014000 b3:07 1579715    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle7/version0.0/bundle.jar
+62995000-62996000 r--s 00007000 b3:07 1701592    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle34/version0.0/bundle.jar
+62996000-62998000 r--s 00015000 b3:07 1711998    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle77/version0.0/bundle.jar
+62998000-6299a000 r--s 0000e000 b3:07 1579690    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle2/version0.0/bundle.jar
+6299a000-6299c000 r--s 0000f000 b3:07 1711866    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle51/version0.0/bundle.jar
+6299c000-629a1000 r--s 00040000 b3:07 1579705    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle5/version0.0/bundle.jar
+629a1000-629a2000 r--s 00001000 b3:07 1711973    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle72/version0.0/bundle.jar
+629a2000-629a5000 r--s 00011000 b3:07 1712040    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle84/version0.0/bundle.jar
+629a5000-629e5000 r--s 0025e000 b3:07 1711871    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle52/version0.0/bundle.jar
+629e5000-62a2c000 r--s 00901000 b3:07 1701952    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle46/version0.0/bundle.jar
+62a2c000-62a2e000 r--s 00007000 b3:07 1712030    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle82/version0.0/bundle.jar
+62a2e000-62a2f000 r--s 0000b000 b3:07 1701465    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle21/version0.0/bundle.jar
+62a2f000-62a3d000 r--s 000be000 b3:07 1711953    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle68/version0.0/bundle.jar
+62a3d000-62a4a000 r--s 000ae000 b3:07 1579695    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle3/version0.0/bundle.jar
+62a4a000-62a50000 r--s 0003f000 b3:07 1579685    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle1/version0.0/bundle.jar
+62a50000-62a52000 r--s 00018000 b3:07 1712015    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle79/version0.0/bundle.jar
+62a52000-62a53000 r--s 00004000 b3:07 1701191    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle19/version0.0/bundle.jar
+62a53000-62a55000 r--s 00012000 b3:07 1701921    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle41/version0.0/bundle.jar
+62a55000-62a56000 r--s 0001b000 b3:07 1711978    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle73/version0.0/bundle.jar
+62a56000-62a58000 r--s 0000e000 b3:07 1701607    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle37/version0.0/bundle.jar
+62a58000-62a5d000 r--s 00041000 b3:07 1579760    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle16/version0.0/bundle.jar
+62a5d000-62a61000 r--s 00022000 b3:07 1701932    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle43/version0.0/bundle.jar
+62a61000-62a62000 r--s 00004000 b3:07 1711983    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle74/version0.0/bundle.jar
+62a62000-62a64000 r--s 0000d000 b3:07 1711907    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle59/version0.0/bundle.jar
+62a64000-62a65000 r--s 00011000 b3:07 1579735    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle11/version0.0/bundle.jar
+62a65000-62a67000 r--s 00009000 b3:07 1700675    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle17/version0.0/bundle.jar
+62a67000-62a69000 r--s 000cd000 b3:07 1712187    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle89/version0.0/bundle.jar
+62a69000-62a6b000 r--s 00019000 b3:07 1711948    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle67/version0.0/bundle.jar
+62a6b000-62a72000 r--s 0003a000 b3:07 1701284    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle20/version0.0/bundle.jar
+62a72000-62a74000 r--s 0001b000 b3:07 1701942    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle44/version0.0/bundle.jar
+62a74000-62a7d000 r--s 000a3000 b3:07 1701557    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle27/version0.0/bundle.jar
+62a7d000-62a7f000 r--s 0001d000 b3:07 1701902    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle40/version0.0/bundle.jar
+62a7f000-62a86000 r--s 00048000 b3:07 1701562    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle28/version0.0/bundle.jar
+62a86000-62a8b000 r--s 00046000 b3:07 1712045    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle85/version0.0/bundle.jar
+62a8b000-62a91000 r--s 0005b000 b3:07 157        /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle93/version0.0/bundle.jar
+62a91000-62a95000 r--s 00035000 b3:07 1711891    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle56/version0.0/bundle.jar
+62a95000-62aa2000 r--s 000a8000 b3:07 1711881    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle54/version0.0/bundle.jar
+62aa2000-62aa9000 r--s 00055000 b3:07 1579755    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle15/version0.0/bundle.jar
+62aa9000-62aaf000 r--s 00048000 b3:07 1711938    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle65/version0.0/bundle.jar
+62aaf000-62abb000 r--s 00307000 b3:07 1712003    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle78/version0.0/bundle.jar
+62abb000-62ac0000 r--s 00030000 b3:07 1579710    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle6/version0.0/bundle.jar
+62ac0000-62ac3000 ---p 00000000 00:00 0 
+62ac3000-62b10000 rw-p 00000000 00:00 0 
+62b10000-62b13000 ---p 00000000 00:00 0 
+62b13000-62b60000 rw-p 00000000 00:00 0 
+62b60000-62b63000 ---p 00000000 00:00 0 
+62b63000-62bb0000 rw-p 00000000 00:00 0 
+62bb0000-62bb3000 ---p 00000000 00:00 0 
+62bb3000-62d00000 rw-p 00000000 00:00 0 
+62d00000-62e00000 rw-p 00000000 00:00 0 
+62e00000-62e01000 r--s 00014000 b3:07 1701728    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle39/version0.0/bundle.jar
+62e01000-62e42000 r--s 00389000 b3:07 1711923    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle62/version0.0/bundle.jar
+62e42000-62e45000 ---p 00000000 00:00 0 
+62e45000-62e92000 rw-p 00000000 00:00 0 
+62e92000-62e93000 rw-s 3f101000 00:06 1027       /dev/mem
+62e93000-62e94000 rw-s 3f200000 00:06 1027       /dev/mem
+62e94000-62e95000 rw-s 3f20c000 00:06 1027       /dev/mem
+62e95000-62e96000 rw-s 3f007000 00:06 1027       /dev/mem
+62e96000-62e97000 rw-s 3d661000 00:06 1027       /dev/mem
+62e97000-62e98000 rw-s 3f101000 00:06 1027       /dev/mem
+62e98000-62e99000 rw-s 3f200000 00:06 1027       /dev/mem
+62e99000-62e9a000 rw-s 3f20c000 00:06 1027       /dev/mem
+62e9a000-62e9b000 rw-s 3f007000 00:06 1027       /dev/mem
+62e9b000-62e9c000 rw-s 3d663000 00:06 1027       /dev/mem
+62e9c000-62e9d000 rw-s 3f101000 00:06 1027       /dev/mem
+62e9d000-62e9e000 rw-s 3f200000 00:06 1027       /dev/mem
+62e9e000-62e9f000 rw-s 3f20c000 00:06 1027       /dev/mem
+62e9f000-62ea0000 rw-s 3f007000 00:06 1027       /dev/mem
+62ea0000-62ea1000 rw-s 3d665000 00:06 1027       /dev/mem
+62ea1000-62ea3000 r--s 0000b000 b3:07 264860     /home/pi/Desktop/lightStatus/lib/diozero-ws281x-java-0.11.jar
+62ea3000-62ea4000 r--s 00000000 b3:07 1580195    /root/.CommandBox/engine/cfml/cli/lucee-server/context/lucee-external-agent.jar
+62ea4000-62ea6000 r--s 00003000 b3:07 1580192    /root/.CommandBox/engine/cfml/cli/lucee-server/context/tools-linux-7u25.jar
+62ea6000-62ea7000 r--p 00000000 00:00 0 
+62ea7000-62ea8000 r--p 00000000 b3:07 1702406    /usr/share/locale/en_GB/LC_MESSAGES/libc.mo
+62ea8000-62ead000 r--s 002f9000 b3:07 801416     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/charsets.jar
+62ead000-62ec0000 r--s 00346000 b3:07 801449     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/resources.jar
+62ec0000-62ec8000 r-xp 00000000 b3:07 801406     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libmanagement.so
+62ec8000-62ed7000 ---p 00008000 b3:07 801406     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libmanagement.so
+62ed7000-62ed8000 r--p 00007000 b3:07 801406     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libmanagement.so
+62ed8000-62ed9000 rw-p 00008000 b3:07 801406     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libmanagement.so
+62ed9000-62f00000 rw-p 00000000 00:00 0 
+62f00000-63000000 rw-p 00000000 00:00 0 
+63000000-63015000 r--s 00177000 b3:07 1712020    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle80/version0.0/bundle.jar
+63015000-63100000 r--s 00be2000 b3:07 1570077    /root/.CommandBox/lib/runwar-4.0.5.jar
+63100000-631fa000 rw-p 00000000 00:00 0 
+631fa000-63200000 ---p 00000000 00:00 0 
+63200000-63221000 rw-p 00000000 00:00 0 
+63221000-63300000 ---p 00000000 00:00 0 
+63300000-63301000 r--s 00006000 b3:07 1701587    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle33/version0.0/bundle.jar
+63301000-63302000 r--s 00005000 b3:07 1579730    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle10/version0.0/bundle.jar
+63302000-63304000 r--s 00008000 b3:07 84         /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle90/version0.0/bundle.jar
+63304000-6330a000 r--s 00135000 b3:07 1712177    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle87/version0.0/bundle.jar
+6330a000-6330d000 r--s 00014000 b3:07 1711963    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle70/version0.0/bundle.jar
+6330d000-6330f000 r--s 00005000 b3:07 152        /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle92/version0.0/bundle.jar
+6330f000-6331b000 r--s 000ba000 b3:07 1711988    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle75/version0.0/bundle.jar
+6331b000-6331d000 r--s 00002000 b3:07 1579720    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle8/version0.0/bundle.jar
+6331d000-63320000 r--s 00007000 b3:07 1579725    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle9/version0.0/bundle.jar
+63320000-6337f000 r--s 003f7000 b3:07 1569894    /root/.CommandBox/lib/bcprov-jdk15on-1.61.jar
+6337f000-63380000 ---p 00000000 00:00 0 
+63380000-63400000 rw-p 00000000 00:00 0 
+63400000-634fb000 rw-p 00000000 00:00 0 
+634fb000-63500000 ---p 00000000 00:00 0 
+63500000-63503000 r--s 00023000 b3:07 1711918    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle61/version0.0/bundle.jar
+63503000-63505000 r--s 0000c000 b3:07 1701597    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle35/version0.0/bundle.jar
+63505000-6352a000 r--s 00281000 b3:07 1570053    /root/.CommandBox/lib/org.eclipse.jgit-5.5.1.201910021850-r.jar
+6352a000-63534000 r--s 000b9000 b3:07 1569924    /root/.CommandBox/lib/jline-3.13.0.jar
+63534000-63548000 r--s 03ff1000 b3:07 1570031    /root/.CommandBox/lib/lucee-5.3.4.80.jar
+63548000-6356d000 r-xp 00000000 b3:07 801412     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libsunec.so
+6356d000-6357c000 ---p 00025000 b3:07 801412     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libsunec.so
+6357c000-6357e000 r--p 00024000 b3:07 801412     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libsunec.so
+6357e000-6357f000 rw-p 00026000 b3:07 801412     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libsunec.so
+6357f000-63583000 ---p 00000000 00:00 0 
+63583000-63600000 rw-p 00000000 00:00 0 
+63600000-63621000 rw-p 00000000 00:00 0 
+63621000-63700000 ---p 00000000 00:00 0 
+63700000-63704000 r--s 00041000 b3:07 1569994    /root/.CommandBox/lib/jsch-0.1.55.jar
+63704000-63706000 r--s 0000e000 b3:07 1569860    /root/.CommandBox/lib/activation-1.1.jar
+63706000-6370a000 r--s 00025000 b3:07 1569858    /root/.CommandBox/lib/JavaEWAH-1.1.6.jar
+6370a000-6371e000 r--s 000c0000 b3:07 1569881    /root/.CommandBox/lib/bcpkix-jdk15on-1.61.jar
+6371e000-63734000 r-xp 00000000 b3:07 801408     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+63734000-63743000 ---p 00016000 b3:07 801408     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+63743000-63744000 r--p 00015000 b3:07 801408     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+63744000-63745000 rw-p 00016000 b3:07 801408     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnet.so
+63745000-63754000 r-xp 00000000 b3:07 801409     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+63754000-63763000 ---p 0000f000 b3:07 801409     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+63763000-63764000 r--p 0000e000 b3:07 801409     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+63764000-63765000 rw-p 0000f000 b3:07 801409     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libnio.so
+63765000-63900000 r--p 00000000 b3:07 796376     /usr/lib/locale/locale-archive
+63900000-63921000 rw-p 00000000 00:00 0 
+63921000-63a00000 ---p 00000000 00:00 0 
+63a00000-63a21000 rw-p 00000000 00:00 0 
+63a21000-63b00000 ---p 00000000 00:00 0 
+63b00000-63b01000 r--s 00000000 b3:07 1701947    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle45/version0.0/bundle.jar
+63b01000-63b09000 r--s 00048000 b3:07 1569866    /root/.CommandBox/lib/bcpg-jdk15on-1.61.jar
+63b09000-63b10000 r--s 00072000 b3:07 1570046    /root/.CommandBox/lib/mail-1.4.4.jar
+63b10000-63b13000 ---p 00000000 00:00 0 
+63b13000-63b60000 rw-p 00000000 00:00 0 
+63b60000-63b63000 ---p 00000000 00:00 0 
+63b63000-63bb0000 rw-p 00000000 00:00 0 
+63bb0000-63bb3000 ---p 00000000 00:00 0 
+63bb3000-63c00000 rw-p 00000000 00:00 0 
+63c00000-63c79000 rw-p 00000000 00:00 0 
+63c79000-63d00000 ---p 00000000 00:00 0 
+63d00000-63d01000 r--s 00001000 b3:07 1701926    /root/.CommandBox/engine/cfml/cli/lucee-server/felix-cache/bundle42/version0.0/bundle.jar
+63d01000-63d03000 r--s 00003000 b3:07 1570003    /root/.CommandBox/lib/json-smart-mini-1.0.8.jar
+63d03000-63d05000 r--s 0000d000 b3:07 1569909    /root/.CommandBox/lib/jcommander-1.47.jar
+63d05000-63d08000 r--s 00043000 b3:07 1569903    /root/.CommandBox/lib/jansi-1.18.jar
+63d08000-63d0a000 r--s 00016000 b3:07 801443     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/jce.jar
+63d0a000-63d0f000 r--s 000a7000 b3:07 801445     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/jsse.jar
+63d0f000-63d11000 r--s 0490f000 b3:07 786137     /usr/local/bin/box
+63d11000-63d14000 ---p 00000000 00:00 0 
+63d14000-63d61000 rw-p 00000000 00:00 0 
+63d61000-63d62000 ---p 00000000 00:00 0 
+63d62000-63de2000 rw-p 00000000 00:00 0 
+63de2000-63fb4000 r--s 03ca5000 b3:07 801450     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/rt.jar
+63fb4000-643fa000 rw-p 00000000 00:00 0 
+643fa000-64400000 ---p 00000000 00:00 0 
+64400000-65e40000 rw-p 00000000 00:00 0 
+65e40000-69150000 ---p 00000000 00:00 0 
+69150000-6c5b2000 rw-p 00000000 00:00 0 
+6c5b2000-72c00000 ---p 00000000 00:00 0 
+72c00000-72c01000 r--s 00046000 b3:07 1570033    /root/.CommandBox/lib/luceecli.jar
+72c01000-72c1c000 r--s 001d6000 b3:07 801429     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/nashorn.jar
+72c1c000-72c37000 r--s 00394000 b3:07 801424     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/cldrdata.jar
+72c37000-72cfb000 rw-p 00000000 00:00 0 
+72cfb000-72d2e000 ---p 00000000 00:00 0 
+72d2e000-72d3c000 rw-p 00000000 00:00 0 
+72d3c000-72d54000 ---p 00000000 00:00 0 
+72d54000-72d6f000 rw-p 00000000 00:00 0 
+72d6f000-72da2000 ---p 00000000 00:00 0 
+72da2000-72dba000 rw-p 00000000 00:00 0 
+72dba000-72e23000 ---p 00000000 00:00 0 
+72e23000-733b3000 rwxp 00000000 00:00 0 
+733b3000-74e23000 ---p 00000000 00:00 0 
+74e23000-74e2a000 r-xp 00000000 b3:07 801415     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74e2a000-74e39000 ---p 00007000 b3:07 801415     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74e39000-74e3a000 r--p 00006000 b3:07 801415     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74e3a000-74e3b000 rw-p 00007000 b3:07 801415     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libzip.so
+74e3b000-74e44000 r-xp 00000000 b3:07 1308495    /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74e44000-74e53000 ---p 00009000 b3:07 1308495    /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74e53000-74e54000 r--p 00008000 b3:07 1308495    /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74e54000-74e55000 rw-p 00009000 b3:07 1308495    /lib/arm-linux-gnueabihf/libnss_files-2.24.so
+74e55000-74e5b000 rw-p 00000000 00:00 0 
+74e5b000-74e64000 r-xp 00000000 b3:07 1308501    /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74e64000-74e73000 ---p 00009000 b3:07 1308501    /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74e73000-74e74000 r--p 00008000 b3:07 1308501    /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74e74000-74e75000 rw-p 00009000 b3:07 1308501    /lib/arm-linux-gnueabihf/libnss_nis-2.24.so
+74e75000-74e86000 r-xp 00000000 b3:07 1308490    /lib/arm-linux-gnueabihf/libnsl-2.24.so
+74e86000-74e95000 ---p 00011000 b3:07 1308490    /lib/arm-linux-gnueabihf/libnsl-2.24.so
+74e95000-74e96000 r--p 00010000 b3:07 1308490    /lib/arm-linux-gnueabihf/libnsl-2.24.so
+74e96000-74e97000 rw-p 00011000 b3:07 1308490    /lib/arm-linux-gnueabihf/libnsl-2.24.so
+74e97000-74e99000 rw-p 00000000 00:00 0 
+74e99000-74e9f000 r-xp 00000000 b3:07 1308491    /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+74e9f000-74eae000 ---p 00006000 b3:07 1308491    /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+74eae000-74eaf000 r--p 00005000 b3:07 1308491    /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+74eaf000-74eb0000 rw-p 00006000 b3:07 1308491    /lib/arm-linux-gnueabihf/libnss_compat-2.24.so
+74eb0000-74ed1000 r-xp 00000000 b3:07 801397     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+74ed1000-74ee0000 ---p 00021000 b3:07 801397     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+74ee0000-74ee1000 r--p 00020000 b3:07 801397     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+74ee1000-74ee2000 rw-p 00021000 b3:07 801397     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libjava.so
+74ee2000-74eef000 r-xp 00000000 b3:07 801414     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+74eef000-74efe000 ---p 0000d000 b3:07 801414     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+74efe000-74eff000 r--p 0000c000 b3:07 801414     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+74eff000-74f00000 rw-p 0000d000 b3:07 801414     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/libverify.so
+74f00000-75000000 rw-p 00000000 00:00 0 
+75000000-75001000 r--s 00000000 b3:07 1570056    /root/.CommandBox/lib/ortus-jgit.jar
+75001000-7500b000 r--s 00116000 b3:07 801428     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/localedata.jar
+7500b000-75011000 r-xp 00000000 b3:07 1308527    /lib/arm-linux-gnueabihf/librt-2.24.so
+75011000-75020000 ---p 00006000 b3:07 1308527    /lib/arm-linux-gnueabihf/librt-2.24.so
+75020000-75021000 r--p 00005000 b3:07 1308527    /lib/arm-linux-gnueabihf/librt-2.24.so
+75021000-75022000 rw-p 00006000 b3:07 1308527    /lib/arm-linux-gnueabihf/librt-2.24.so
+75022000-75026000 ---p 00000000 00:00 0 
+75026000-75073000 rw-p 00000000 00:00 0 
+75073000-7508f000 r-xp 00000000 b3:07 1308470    /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7508f000-7509e000 ---p 0001c000 b3:07 1308470    /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7509e000-7509f000 r--p 0001b000 b3:07 1308470    /lib/arm-linux-gnueabihf/libgcc_s.so.1
+7509f000-750a0000 rw-p 0001c000 b3:07 1308470    /lib/arm-linux-gnueabihf/libgcc_s.so.1
+750a0000-7510d000 r-xp 00000000 b3:07 1308476    /lib/arm-linux-gnueabihf/libm-2.24.so
+7510d000-7511d000 ---p 0006d000 b3:07 1308476    /lib/arm-linux-gnueabihf/libm-2.24.so
+7511d000-7511e000 r--p 0006d000 b3:07 1308476    /lib/arm-linux-gnueabihf/libm-2.24.so
+7511e000-7511f000 rw-p 0006e000 b3:07 1308476    /lib/arm-linux-gnueabihf/libm-2.24.so
+7511f000-7524e000 r-xp 00000000 b3:07 785511     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+7524e000-7525e000 ---p 0012f000 b3:07 785511     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+7525e000-75263000 r--p 0012f000 b3:07 785511     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+75263000-75265000 rw-p 00134000 b3:07 785511     /usr/lib/arm-linux-gnueabihf/libstdc++.so.6.0.22
+75265000-75267000 rw-p 00000000 00:00 0 
+75267000-75898000 r-xp 00000000 b3:07 801381     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+75898000-758a8000 ---p 00631000 b3:07 801381     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+758a8000-758b8000 r--p 00631000 b3:07 801381     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+758b8000-758d0000 rw-p 00641000 b3:07 801381     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/client/libjvm.so
+758d0000-76ceb000 rw-p 00000000 00:00 0 
+76ceb000-76e15000 r-xp 00000000 b3:07 1308469    /lib/arm-linux-gnueabihf/libc-2.24.so
+76e15000-76e24000 ---p 0012a000 b3:07 1308469    /lib/arm-linux-gnueabihf/libc-2.24.so
+76e24000-76e26000 r--p 00129000 b3:07 1308469    /lib/arm-linux-gnueabihf/libc-2.24.so
+76e26000-76e27000 rw-p 0012b000 b3:07 1308469    /lib/arm-linux-gnueabihf/libc-2.24.so
+76e27000-76e2a000 rw-p 00000000 00:00 0 
+76e2a000-76e2c000 r-xp 00000000 b3:07 1308475    /lib/arm-linux-gnueabihf/libdl-2.24.so
+76e2c000-76e3b000 ---p 00002000 b3:07 1308475    /lib/arm-linux-gnueabihf/libdl-2.24.so
+76e3b000-76e3c000 r--p 00001000 b3:07 1308475    /lib/arm-linux-gnueabihf/libdl-2.24.so
+76e3c000-76e3d000 rw-p 00002000 b3:07 1308475    /lib/arm-linux-gnueabihf/libdl-2.24.so
+76e3d000-76e4b000 r-xp 00000000 b3:07 801383     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76e4b000-76e5a000 ---p 0000e000 b3:07 801383     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76e5a000-76e5b000 r--p 0000d000 b3:07 801383     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76e5b000-76e5c000 rw-p 0000e000 b3:07 801383     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/arm/jli/libjli.so
+76e5c000-76e72000 r-xp 00000000 b3:07 1321851    /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76e72000-76e81000 ---p 00016000 b3:07 1321851    /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76e81000-76e82000 r--p 00015000 b3:07 1321851    /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76e82000-76e83000 rw-p 00016000 b3:07 1321851    /lib/arm-linux-gnueabihf/libz.so.1.2.8
+76e83000-76e99000 r-xp 00000000 b3:07 1308514    /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76e99000-76ea8000 ---p 00016000 b3:07 1308514    /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76ea8000-76ea9000 r--p 00015000 b3:07 1308514    /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76ea9000-76eaa000 rw-p 00016000 b3:07 1308514    /lib/arm-linux-gnueabihf/libpthread-2.24.so
+76eaa000-76eac000 rw-p 00000000 00:00 0 
+76eac000-76ead000 r--s 00010000 b3:07 1570010    /root/.CommandBox/lib/jzlib-1.1.1.jar
+76ead000-76eae000 r--s 0000a000 b3:07 801427     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/jaccess.jar
+76eae000-76eb0000 r--s 00001000 b3:07 801425     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/dnsns.jar
+76eb0000-76eb4000 r--s 0003a000 b3:07 801432     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunpkcs11.jar
+76eb4000-76eb6000 r--s 00007000 b3:07 1439601    /usr/share/java/java-atk-wrapper.jar
+76eb6000-76eb9000 r--s 0000f000 b3:07 801426     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/icedtea-sound.jar
+76eb9000-76ebf000 r--s 0003d000 b3:07 801431     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunjce_provider.jar
+76ebf000-76ec4000 r-xp 00000000 b3:07 801843     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76ec4000-76ed3000 ---p 00005000 b3:07 801843     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76ed3000-76ed4000 r--p 00004000 b3:07 801843     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76ed4000-76ed5000 rw-p 00005000 b3:07 801843     /usr/lib/arm-linux-gnueabihf/libarmmem.so
+76ed5000-76ef6000 r-xp 00000000 b3:07 1308458    /lib/arm-linux-gnueabihf/ld-2.24.so
+76ef6000-76ef7000 r--s 0000d000 b3:07 801430     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/sunec.jar
+76ef7000-76ef8000 r--s 00010000 b3:07 801433     /usr/lib/jvm/java-8-openjdk-armhf/jre/lib/ext/zipfs.jar
+76ef8000-76f00000 rw-s 00000000 b3:07 654110     /tmp/hsperfdata_root/1992
+76f00000-76f01000 r--p 00000000 00:00 0 
+76f01000-76f05000 rw-p 00000000 00:00 0 
+76f05000-76f06000 r--p 00020000 b3:07 1308458    /lib/arm-linux-gnueabihf/ld-2.24.so
+76f06000-76f07000 rw-p 00021000 b3:07 1308458    /lib/arm-linux-gnueabihf/ld-2.24.so
+7ede3000-7ee04000 rw-p 00000000 00:00 0          [stack]
+7ee56000-7ee57000 r-xp 00000000 00:00 0          [sigpage]
+7ee57000-7ee58000 r--p 00000000 00:00 0          [vvar]
+7ee58000-7ee59000 r-xp 00000000 00:00 0          [vdso]
+ffff0000-ffff1000 r-xp 00000000 00:00 0          [vectors]
+
+VM Arguments:
+java_command: cliloader.LoaderCLIMain
+java_class_path (initial): /usr/local/bin/box
+Launcher Type: SUN_STANDARD
+
+Environment Variables:
+CLASSPATH=/usr/local/bin/box
+PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin
+USERNAME=root
+SHELL=/bin/bash
+
+Signal Handlers:
+SIGSEGV: [libjvm.so+0x5bbc00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGBUS: [libjvm.so+0x5bbc00], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGFPE: [libjvm.so+0x480b0c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGPIPE: [libjvm.so+0x480b0c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGXFSZ: [libjvm.so+0x480b0c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGILL: [libjvm.so+0x480b0c], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGUSR1: SIG_DFL, sa_mask[0]=00000000000000000000000000000000, sa_flags=none
+SIGUSR2: [libjvm.so+0x4809b8], sa_mask[0]=00000000000000000000000000000000, sa_flags=SA_RESTART|SA_SIGINFO
+SIGHUP: [libjvm.so+0x480dbc], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGINT: [libjvm.so+0x480dbc], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGTERM: [libjvm.so+0x480dbc], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+SIGQUIT: [libjvm.so+0x480dbc], sa_mask[0]=11111111011111111101111111111110, sa_flags=SA_RESTART|SA_SIGINFO
+
+
+---------------  S Y S T E M  ---------------
+
+OS:PRETTY_NAME="Raspbian GNU/Linux 9 (stretch)"
+NAME="Raspbian GNU/Linux"
+VERSION_ID="9"
+VERSION="9 (stretch)"
+VERSION_CODENAME=stretch
+ID=raspbian
+ID_LIKE=debian
+HOME_URL="http://www.raspbian.org/"
+SUPPORT_URL="http://www.raspbian.org/RaspbianForums"
+BUG_REPORT_URL="http://www.raspbian.org/RaspbianBugs"
+
+uname:Linux 4.19.66-v7+ #1253 SMP Thu Aug 15 11:49:46 BST 2019 armv7l
+libc:glibc 2.24 NPTL 2.24 
+rlimit: STACK 8192k, CORE 0k, NPROC 7304, NOFILE 1048576, AS infinity
+load average:0.91 0.68 0.65
+
+/proc/meminfo:
+MemTotal:         944248 kB
+MemFree:          557844 kB
+MemAvailable:     556348 kB
+Buffers:            5404 kB
+Cached:            31968 kB
+SwapCached:        43104 kB
+Active:            95692 kB
+Inactive:         249416 kB
+Active(anon):      75404 kB
+Inactive(anon):   233960 kB
+Active(file):      20288 kB
+Inactive(file):    15456 kB
+Unevictable:           0 kB
+Mlocked:               0 kB
+SwapTotal:        102396 kB
+SwapFree:          34556 kB
+Dirty:                40 kB
+Writeback:             0 kB
+AnonPages:        264632 kB
+Mapped:            20652 kB
+Shmem:              1444 kB
+Slab:              23596 kB
+SReclaimable:      10412 kB
+SUnreclaim:        13184 kB
+KernelStack:        2200 kB
+PageTables:         3480 kB
+NFS_Unstable:          0 kB
+Bounce:                0 kB
+WritebackTmp:          0 kB
+CommitLimit:      574520 kB
+Committed_AS:    1255644 kB
+VmallocTotal:    1114112 kB
+VmallocUsed:           0 kB
+VmallocChunk:          0 kB
+Percpu:              416 kB
+CmaTotal:           8192 kB
+CmaFree:            6816 kB
+
+container (cgroup) information:
+container_type: cgroupv1
+cpu_cpuset_cpus: 0-3
+cpu_memory_nodes: 0
+active_processor_count: 4
+cpu_quota: -2
+cpu_period: -2
+cpu_shares: -1
+memory_limit_in_bytes: -1
+memory_and_swap_limit_in_bytes: -2
+memory_soft_limit_in_bytes: -1
+memory_usage_in_bytes: 353198080
+memory_max_usage_in_bytes: 0
+
+
+CPU:total 4 (initial active 4) 0x41:0x0:0xd03:4
+
+/proc/cpuinfo:
+processor	: 0
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 76.80
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 1
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 76.80
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 2
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 76.80
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+processor	: 3
+model name	: ARMv7 Processor rev 4 (v7l)
+BogoMIPS	: 76.80
+Features	: half thumb fastmult vfp edsp neon vfpv3 tls vfpv4 idiva idivt vfpd32 lpae evtstrm crc32 
+CPU implementer	: 0x41
+CPU architecture: 7
+CPU variant	: 0x0
+CPU part	: 0xd03
+CPU revision	: 4
+
+Hardware	: BCM2835
+Revision	: a02082
+Serial		: 00000000312be1c9
+
+
+Memory: 4k page, physical 944248k(557844k free), swap 102396k(34556k free)
+
+vm_info: OpenJDK Client VM (25.252-b09) for linux-aarch32 JRE (1.8.0_252-8u252-b09-1~deb9u1-b09), built on Apr 24 2020 13:11:49 by "buildd" with gcc 6.3.0 20170516
+
+time: Sat May  2 21:12:45 2020
+timezone: UTC
+elapsed time: 88227 seconds (1d 0h 30m 27s)
+

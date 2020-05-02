@@ -1,0 +1,13 @@
+[Unit]
+Description='Status Lights'
+
+[Service]
+ExecStart='/usr/local/bin/box' server start name='statuslights' directory='/home/pi/Desktop/lightStatus/' serverConfigFile='/home/pi/Desktop/lightStatus/server.json' --noSaveSettings 
+ExecStop='/usr/local/bin/box' server stop name='statuslights' directory='/home/pi/Desktop/lightStatus/' serverConfigFile='/home/pi/Desktop/lightStatus/server.json'
+Type=forking
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=2000ms
+
+[Install]
+WantedBy=multi-user.target

@@ -1,0 +1,8 @@
+{
+    "dependencies":{
+        "diozero-ws281x-java-0.11":"jar:https://repo1.maven.org/maven2/com/diozero/diozero-ws281x-java/0.11/diozero-ws281x-java-0.11.jar"
+    },
+    "installPaths":{
+        "diozero-ws281x-java-0.11":"lib/diozero-ws281x-java-0.11/"
+    }
+}

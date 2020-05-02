@@ -1,0 +1,24 @@
+{
+    "name": "statuslights",
+    "openbrowser": false,
+    "trayEnable": false,
+    "debug": true,
+    "jvm": {
+        "heapSize": 1024,
+        "minHeapSize": 256
+    },
+    "app": {
+        "libDirs": "lib"
+    },
+    "runwar": {
+        "args": "--log-dir=/home/pi/Desktop/lightStatus/logs"
+    },
+    "web": {
+        "host": "raspberrypi.local",
+        "http": {
+            "port": "80"
+        },
+        "webroot": "/"
+    },
+    "force": true
+}
