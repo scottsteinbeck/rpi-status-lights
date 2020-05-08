@@ -10,9 +10,6 @@
     "app": {
         "libDirs": "lib"
     },
-    "runwar": {
-        "args": "--log-dir=/home/pi/Desktop/lightStatus/logs"
-    },
     "web": {
         "host": "raspberrypi.local",
         "http": {
