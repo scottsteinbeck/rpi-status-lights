@@ -17,12 +17,12 @@ component {
 
     //Color Name to Hue index
     variables.colorIndex = {
-        'red': 1,
+        'red': 0,
         'orange': 40,
         'yellow': 60,
-        'green': 100,
-        'lightblue': 200,
-        'blue': 250,
+        'green': 120,
+        'lightblue': 180,
+        'blue': 270,
         'purple': 300
     };
 
@@ -46,17 +46,21 @@ component {
     function updateLights(){
         variables.ledController.render();
     }
+    function consolelog(data){
+        //print.line(data).toConsole();
+    }   
 
     // Blink light
-    function blink(ledID,hue,delay,blinkNum){
-        return runAsync(function(){
+    function blink(ledID,hue,delay,blinkNum, stayOn = false){
+            consolelog(ledID & ' start blinking');
             for(var i=1; i <=blinkNum; i++){
-                setLEDHue(ledID,i,true);
+                consolelog('blinking');
+                setLEDHue(ledID,hue,true);
                 sleep(delay);
                 turnOffLED(ledID,true);
                 sleep(delay);
             }
-        })
+            if(stayOn) setLEDHue(ledID,hue,true);
     }
 
     // Get the corresponding color from a color range based on a percentage
@@ -92,15 +96,6 @@ component {
         }
     }
 
-    //Async health check
-    function pingServer(id,siteURL){
-        return runAsync(function(){
-            cfhttp(method="GET", charset="utf-8", url=siteURL, result="result", timeout=5);
-            return result;
-        }).then(function(result){
-            setLEDHue(variables.ledIndex['siteMonitor'][id],colorScale((result.status_code == 200 ? 1 : 0 ),'red','blue'),true);
-        })
-    }
 
     // TODO: make actually check via api/IFTTT
     function checkEmail(){ return randRange(1,100)/100}
@@ -108,21 +103,21 @@ component {
     function checkLastCommit(){ return randRange(1,100)/100}
     function checkIdleTime(){ return randRange(1,100)/100}
     function checkTweets(){
-        var ledID = variables.ledIndex['genblink'][1];
-        blink(ledID,randRange(1,360),100,6);        
+        thread { 
+            var ledID = variables.ledIndex['genblink'][1];
+            blink(ledID,60,1000,6); 
+        }
     }
     function checkAppointements(){
-        return runAsync(function(){
-            var ledID = variables.ledIndex['calStat'][1];
+        var ledID = variables.ledIndex['calStat'][1];
+        for(var i=1; i <=5; i++){
             turnOffLED(ledID,true);
-            if(randRange(0,1) == 0) return;
-            for(var i=1; i <=5; i++){
-                turnOffLED(ledID,true);
-                sleep(300);
-                variables.ledController.setPixelColourHSL(ledID,55,1,.8);
-                sleep(60);
-            }
-        })
+            sleep(300);
+            variables.ledController.setPixelColourHSL(ledID,55,1,.8);
+            sleep(60);
+        }
+        variables.ledController.setPixelColourHSL(ledID,55,1,.8);
+        
     }
 
     /* 
@@ -162,7 +157,7 @@ component {
         if(halftime <= 25){
             setLEDHue(pomoLED,colorScale(halftime/25,'green','purple'));            
         } else {
-            blink(pomoLED,0,100,6);
+           thread { blink(pomoLED,0,300,6,true); }
         }
 
 
@@ -190,27 +185,27 @@ component {
 
     //Wheatley Robot rainbow colored eye
     function wheatleyBlink(){
-        return runAsync(function(){
+        thread  timeout="600" {
             var ledID = variables.ledIndex['wheatley'][1];
             for(var i=20; i <=360; i++){
                 setLEDHue(ledID,i,true);sleep(60);
             }
-        })
+        }
     }
 
     //Temperature Monitor
     //TODO: use api/onboard sensor to give temp scale
     function tempBlink(){
-        return runAsync(function(){
+        thread  timeout="600" {
             var randHue = randrange(60,220);
             for(var i=1; i <=variables.ledIndex['temp'].len(); i++){
                 turnOffLED(variables.ledIndex['temp'][i],true);
             }
             sleep(200);
             for(var i=1; i <=variables.ledIndex['temp'].len(); i++){
-                setLEDHue(variables.ledIndex['temp'][i],randHue + (i*5),true);sleep(200);
+                setLEDHue(variables.ledIndex['temp'][i],randHue + (i*5),true);sleep(400);
             }
-        })
+        }
     }
 
     //Work Monitor (checkEmail, checkSlack, checkCommit, checkIdleTime, checkAppointement)
@@ -219,16 +214,36 @@ component {
         setLEDHue(variables.ledIndex['workMonitor'][2],colorScale(checkSlack(),'lightblue','orange'));
         setLEDHue(variables.ledIndex['workMonitor'][3],colorScale(checkLastCommit(),'lightblue','orange'));
         setLEDHue(variables.ledIndex['workMonitor'][4],colorScale(checkIdleTime(),'lightblue','orange'));
-        checkAppointements();
+        thread timeout="600" { checkAppointements(); }
         updateLights();
+    }
+
+
+    //Async health check
+    function pingServer(id,siteURL){
+        cfhttp(method="GET", charset="utf-8", url=siteURL, result="local.result", timeout=10);
+        return {'id' : id, 'healthy': structKeyExists(local.result,'status_code') && local.result.status_code == 200};
     }
 
     //Site Monitor (health check)
     function siteMonitor(){
-            pingServer(1,"http://my.agritrackingsystems.com");
-            pingServer(2,"http://app.cropcast.com");
-            pingServer(3,"https://www.ortussolutions.com");
-            pingServer(4,"https://www.google.com/");
+        async = new coldbox.system.async.AsyncManager();
+
+        var sites =  [
+           () => pingServer(4,"https://www.ortussolutions.com"),
+           () => pingServer(1,"http://my.agritrackingsystems.com"),
+           () => pingServer(2,"http://my.agrimapping.com"),
+           () => pingServer(3,"http://app.cropcast.com")
+        ]
+
+        async
+            .all( sites )
+            .get()
+            .each( ( healthCheck ) => {
+                var ledID = variables.ledIndex['siteMonitor'][healthCheck.id];
+                setLEDHue(ledID,60,true);
+                setLEDHue(ledID,colorScale((healthCheck.healthy ? 1 : 0 ),'red','blue'),true);
+            })
     }
 
     //System Stats
@@ -236,15 +251,17 @@ component {
         var  systemInfo=GetSystemMetrics(); //Get lucee System Metrics
 	    var heap = getmemoryUsage("heap"); // Java heap usage
 	    var nonHeap = getmemoryUsage("non_heap"); //Java Non-heap usage
-        
-        setLEDHue(variables.ledIndex['piStatus'][1],colorScale(systemInfo.cpuSystem,'green','red'));
-        setLEDHue(variables.ledIndex['piStatus'][2],colorScale(heap.used/heap.max, 'green','red'));
-        setLEDHue(variables.ledIndex['piStatus'][3],colorScale(systemInfo.queueRequests, 'green','red'));
-        setLEDHue(variables.ledIndex['piStatus'][4],colorScale(randRange(0,1), 'green','red'));
+        var statusLEDs = variables.ledIndex['piStatus'];
+
+        setLEDHue(statusLEDs[1],colorScale(systemInfo.cpuSystem,'green','red'));
+        setLEDHue(statusLEDs[2],colorScale(heap.used/heap.max, 'green','red'));
+        setLEDHue(statusLEDs[3],colorScale(systemInfo.queueRequests, 'green','red'));
+        setLEDHue(statusLEDs[4],colorScale(randRange(0,1), 'green','red'));
         updateLights();
     }
     
     function run(){
+        fileSystemUtil.createMapping( "/coldbox", getCwd() & "coldbox" );
         classLoad( '/home/pi/Desktop/lightStatus/lib/diozero-ws281x-java-0.11.jar' );
 
         var numOfLights = javacast('int',50);
@@ -261,6 +278,7 @@ component {
 
         //testLEDs();
         while( true ) {
+
             var timeElapsedMs = GetTickCount() - lastRun;
             if(timeElapsedMs > 60000) {
 
@@ -274,7 +292,7 @@ component {
                 checkTweets();
                 lastRun = GetTickCount();
             }
-            sleep( 1000 ); //just a safety 
+            sleep( 1000 ); //just a safety  
         }
     }
 

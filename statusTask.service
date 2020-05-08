@@ -1,0 +1,12 @@
+[Unit]
+Description='Status Lights'
+
+[Service]
+ExecStart='/usr/local/bin/box' task run '/home/pi/Desktop/lightStatus/twinkleTask.cfc'
+Type=simple
+SuccessExitStatus=143
+Restart=on-failure
+RestartSec=2000ms
+
+[Install]
+WantedBy=multi-user.target
